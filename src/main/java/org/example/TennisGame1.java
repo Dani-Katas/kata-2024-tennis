@@ -35,20 +35,13 @@ public class TennisGame1 implements TennisGame {
         String score = "";
         {
             int tempScore = 0;
-            if (1 == 1) tempScore = playerOneScore;
-            else {
-                score += "-";
-                tempScore = playerTwoScore;
-            }
+            tempScore = playerOneScore;
             score = scoreToString(score, tempScore);
         }
         {
             int tempScore = 0;
-            if (2 == 1) tempScore = playerOneScore;
-            else {
-                score += "-";
-                tempScore = playerTwoScore;
-            }
+            score += "-";
+            tempScore = playerTwoScore;
             score = scoreToString(score, tempScore);
         }
         return score;
