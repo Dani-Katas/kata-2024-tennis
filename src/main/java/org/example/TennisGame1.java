@@ -1,31 +1,29 @@
 package org.example;
 
-import org.example.TennisGame;
-
 public class TennisGame1 implements TennisGame {
     
-    private int m_score1 = 0;
-    private int m_score2 = 0;
-    private String player1Name;
-    private String player2Name;
+    private int playerOneScore = 0;
+    private int playerTwoScore = 0;
+    private String playerOneName;
+    private String playerTwoName;
 
-    public TennisGame1(String player1Name, String player2Name) {
-        this.player1Name = player1Name;
-        this.player2Name = player2Name;
+    public TennisGame1(String playerOneName, String playerTwoName) {
+        this.playerOneName = playerOneName;
+        this.playerTwoName = playerTwoName;
     }
 
     public void wonPoint(String playerName) {
-        if (playerName == player1Name)
-            m_score1 += 1;
+        if (playerName == playerOneName)
+            playerOneScore += 1;
         else
-            m_score2 += 1;
+            playerTwoScore += 1;
     }
 
     public String getScore() {
         String score = "";
-        if (m_score1==m_score2)
+        if (playerOneScore == playerTwoScore)
         {
-            switch (m_score1)
+            switch (playerOneScore)
             {
                 case 0:
                         score = "Love-All";
@@ -42,21 +40,21 @@ public class TennisGame1 implements TennisGame {
                 
             }
         }
-        else if (m_score1>=4 || m_score2>=4)
+        else if (playerOneScore >=4 || playerTwoScore >=4)
         {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage " + player1Name;
-            else if (minusResult ==-1) score ="Advantage " + player2Name;
-            else if (minusResult>=2) score = "Win for " + player1Name;
-            else score ="Win for " + player2Name;
+            int minusResult = playerOneScore - playerTwoScore;
+            if (minusResult==1) score ="Advantage " + playerOneName;
+            else if (minusResult ==-1) score ="Advantage " + playerTwoName;
+            else if (minusResult>=2) score = "Win for " + playerOneName;
+            else score ="Win for " + playerTwoName;
         }
         else
         {
             for (int i=1; i<3; i++)
             {
                 int tempScore=0;
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
+                if (i==1) tempScore = playerOneScore;
+                else { score+="-"; tempScore = playerTwoScore;}
                 switch(tempScore)
                 {
                     case 0:
