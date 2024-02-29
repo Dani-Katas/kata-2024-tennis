@@ -20,15 +20,13 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
         if (playerOneScore == playerTwoScore) {
-            score = scoreWhenTie();
+            return scoreWhenTie();
         } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
-            score = scoreWhenAdvantage();
+            return scoreWhenAdvantage();
         } else {
-            score = scoreInGame();
+            return scoreInGame();
         }
-        return score;
     }
 
     private String scoreInGame() {
