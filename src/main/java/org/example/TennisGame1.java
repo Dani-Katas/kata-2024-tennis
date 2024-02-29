@@ -39,22 +39,13 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String scoreToString(int tempScore) {
-        String score = "";
-        switch (tempScore) {
-            case 0:
-                score += "Love";
-                break;
-            case 1:
-                score += "Fifteen";
-                break;
-            case 2:
-                score += "Thirty";
-                break;
-            case 3:
-                score += "Forty";
-                break;
-        }
-        return score;
+        return switch (tempScore) {
+            case 0 -> "Love";
+            case 1 -> "Fifteen";
+            case 2 -> "Thirty";
+            case 3 -> "Forty";
+            default -> "WHATEVER";
+        };
     }
 
     private String scoreWhenAdvantage() {
