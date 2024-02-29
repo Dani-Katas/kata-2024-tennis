@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -61,6 +62,23 @@ public class TennisTest {
         game.wonPoint("player2");
     }
     assertEquals(expectedScore, game.getScore());
+  }
+
+  @Test
+  void uses_names_of_player() {
+    final String player1 = "Alice";
+    final String player2 = "Bob";
+    TennisGame game = new TennisGame1(player1, player2);
+
+    game.wonPoint(player1);
+    game.wonPoint(player1);
+    game.wonPoint(player1);
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+    game.wonPoint(player1);
+
+    assertEquals("Advantage " + player1, game.getScore());
   }
 
   @ParameterizedTest
