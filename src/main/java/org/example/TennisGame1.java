@@ -1,7 +1,7 @@
 package org.example;
 
 public class TennisGame1 implements TennisGame {
-    
+
     private int playerOneScore = 0;
     private int playerTwoScore = 0;
     private String playerOneName;
@@ -21,40 +21,36 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        if (playerOneScore == playerTwoScore)
-        {
+        if (playerOneScore == playerTwoScore) {
             score = scoreWhenTie();
-        }
-        else if (playerOneScore >=4 || playerTwoScore >=4)
-        {
+        } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
             score = scoreWhenAdvantage();
-        }
-        else
-        {
+        } else {
             score = scoreInGame(score);
         }
         return score;
     }
 
     private String scoreInGame(String score) {
-        for (int i=1; i<3; i++)
-        {
-            int tempScore=0;
-            if (i==1) tempScore = playerOneScore;
-            else { score +="-"; tempScore = playerTwoScore;}
-            switch(tempScore)
-            {
+        for (int i = 1; i < 3; i++) {
+            int tempScore = 0;
+            if (i == 1) tempScore = playerOneScore;
+            else {
+                score += "-";
+                tempScore = playerTwoScore;
+            }
+            switch (tempScore) {
                 case 0:
-                    score +="Love";
+                    score += "Love";
                     break;
                 case 1:
-                    score +="Fifteen";
+                    score += "Fifteen";
                     break;
                 case 2:
-                    score +="Thirty";
+                    score += "Thirty";
                     break;
                 case 3:
-                    score +="Forty";
+                    score += "Forty";
                     break;
             }
         }
@@ -64,10 +60,10 @@ public class TennisGame1 implements TennisGame {
     private String scoreWhenAdvantage() {
         String score;
         int minusResult = playerOneScore - playerTwoScore;
-        if (minusResult==1) score ="Advantage " + playerOneName;
-        else if (minusResult ==-1) score ="Advantage " + playerTwoName;
-        else if (minusResult>=2) score = "Win for " + playerOneName;
-        else score ="Win for " + playerTwoName;
+        if (minusResult == 1) score = "Advantage " + playerOneName;
+        else if (minusResult == -1) score = "Advantage " + playerTwoName;
+        else if (minusResult >= 2) score = "Win for " + playerOneName;
+        else score = "Win for " + playerTwoName;
         return score;
     }
 
