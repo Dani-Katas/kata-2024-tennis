@@ -33,9 +33,31 @@ public class TennisGame1 implements TennisGame {
 
     private String scoreInGame() {
         String score = "";
-        for (int i = 1; i < 3; i++) {
+        {
             int tempScore = 0;
-            if (i == 1) tempScore = playerOneScore;
+            if (1 == 1) tempScore = playerOneScore;
+            else {
+                score += "-";
+                tempScore = playerTwoScore;
+            }
+            switch (tempScore) {
+                case 0:
+                    score += "Love";
+                    break;
+                case 1:
+                    score += "Fifteen";
+                    break;
+                case 2:
+                    score += "Thirty";
+                    break;
+                case 3:
+                    score += "Forty";
+                    break;
+            }
+        }
+        {
+            int tempScore = 0;
+            if (2 == 1) tempScore = playerOneScore;
             else {
                 score += "-";
                 tempScore = playerTwoScore;
