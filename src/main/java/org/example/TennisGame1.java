@@ -49,7 +49,7 @@ public class TennisGame1 implements TennisGame {
             if (minusResult==1) score ="Advantage " + player1Name;
             else if (minusResult ==-1) score ="Advantage " + player2Name;
             else if (minusResult>=2) score = "Win for " + player1Name;
-            else score ="Win for player2";
+            else score ="Win for " + player2Name;
         }
         else
         {

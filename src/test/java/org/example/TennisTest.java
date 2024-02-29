@@ -112,6 +112,20 @@ public class TennisTest {
     assertEquals("Win for " + player1, game.getScore());
   }
 
+  @Test
+  void displays_player_two_name_if_has_won() {
+    final String player1 = "Alice";
+    final String player2 = "Bob";
+    TennisGame game = new TennisGame1(player1, player2);
+
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+
+    assertEquals("Win for " + player2, game.getScore());
+  }
+
   @ParameterizedTest
   @MethodSource("getAllScores")
   public void checkAllScoresTennisGame1(int player1Points, int player2Points, String expectedScore) {
