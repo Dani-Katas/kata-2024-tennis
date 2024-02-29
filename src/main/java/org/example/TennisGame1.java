@@ -26,12 +26,13 @@ public class TennisGame1 implements TennisGame {
         } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
             score = scoreWhenAdvantage();
         } else {
-            score = scoreInGame(score);
+            score = scoreInGame();
         }
         return score;
     }
 
-    private String scoreInGame(String score) {
+    private String scoreInGame() {
+        String score = "";
         for (int i = 1; i < 3; i++) {
             int tempScore = 0;
             if (i == 1) tempScore = playerOneScore;
