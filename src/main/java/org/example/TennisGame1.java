@@ -32,15 +32,10 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String scoreInGame() {
-        String score = "";
-        {
-            score = scoreToString(score, playerOneScore);
-        }
-        {
-            score += "-";
-            score = scoreToString(score, playerTwoScore);
-        }
-        return score;
+        String score = scoreToString("", playerOneScore);
+        score += "-";
+
+        return scoreToString(score, playerTwoScore);
     }
 
     private String scoreToString(String score, int tempScore) {
