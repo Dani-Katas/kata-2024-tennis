@@ -27,11 +27,7 @@ public class TennisGame1 implements TennisGame {
         }
         else if (playerOneScore >=4 || playerTwoScore >=4)
         {
-            int minusResult = playerOneScore - playerTwoScore;
-            if (minusResult==1) score ="Advantage " + playerOneName;
-            else if (minusResult ==-1) score ="Advantage " + playerTwoName;
-            else if (minusResult>=2) score = "Win for " + playerOneName;
-            else score ="Win for " + playerTwoName;
+            score = scoreWhenAdvantage();
         }
         else
         {
@@ -57,6 +53,16 @@ public class TennisGame1 implements TennisGame {
                 }
             }
         }
+        return score;
+    }
+
+    private String scoreWhenAdvantage() {
+        String score;
+        int minusResult = playerOneScore - playerTwoScore;
+        if (minusResult==1) score ="Advantage " + playerOneName;
+        else if (minusResult ==-1) score ="Advantage " + playerTwoName;
+        else if (minusResult>=2) score = "Win for " + playerOneName;
+        else score ="Win for " + playerTwoName;
         return score;
     }
 
