@@ -65,7 +65,7 @@ public class TennisTest {
   }
 
   @Test
-  void uses_names_of_player() {
+  void displays_player_one_name_if_has_advantage() {
     final String player1 = "Alice";
     final String player2 = "Bob";
     TennisGame game = new TennisGame1(player1, player2);
@@ -79,6 +79,23 @@ public class TennisTest {
     game.wonPoint(player1);
 
     assertEquals("Advantage " + player1, game.getScore());
+  }
+
+  @Test
+  void displays_player_two_name_if_has_advantage() {
+    final String player1 = "Alice";
+    final String player2 = "Bob";
+    TennisGame game = new TennisGame1(player1, player2);
+
+    game.wonPoint(player1);
+    game.wonPoint(player1);
+    game.wonPoint(player1);
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+    game.wonPoint(player2);
+
+    assertEquals("Advantage " + player2, game.getScore());
   }
 
   @ParameterizedTest
